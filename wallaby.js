@@ -29,7 +29,7 @@ module.exports = function (wallaby) {
             })
         },
 
-        setup: function () {
+        setup() {
 
             const noop = () => { };
 
@@ -38,8 +38,8 @@ module.exports = function (wallaby) {
             require.extensions[".png"] = noop;
             require.extensions[".svg"] = noop;
 
-            let jsdom = require("jsdom").jsdom;
-            let exposedProperties = ["window", "navigator", "document"];
+            const jsdom = require("jsdom").jsdom;
+            const exposedProperties = ["window", "navigator", "document"];
 
             global.document = jsdom("");
             global.window = document.defaultView;
@@ -52,8 +52,8 @@ module.exports = function (wallaby) {
 
 
             global.localStorage = {
-                getItem: function () { },
-                setItem: function () { }
+                getItem() { },
+                setItem() { }
             };
 
             global.navigator = {
