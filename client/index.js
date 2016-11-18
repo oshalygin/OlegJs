@@ -12,7 +12,7 @@ import './images/apple-touch-icon.png';
 import './images/favicon-16x16.png';
 import './images/favicon-32x32.png';
 
-
+import './pageScroll';
 
 import './styles/styles.css';
 

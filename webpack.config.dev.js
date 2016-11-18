@@ -61,13 +61,7 @@ export default {
             }, {
                 test: /\.ico$/,
                 loader: 'file?name=[name].[ext]'
-            }, {
-                test: /\.css$/,
-                loaders: [
-                    'style?sourceMap',
-                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-                ]
-            }, {
+            }, { test: /\.css$/, loaders: ['style', 'css?sourceMap', 'postcss'] }, {
                 test: /\.json$/,
                 loader: 'json'
             }

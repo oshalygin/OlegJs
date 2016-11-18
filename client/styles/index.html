@@ -1,0 +1,591 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JWT Inspector - Decode and Debug JSON Web Tokens</title>
+    <meta charset="utf-8">
+    <meta name="description" content="JWT Inspector is a browser extension that lets you decode and debug JSON Web Tokens (JWTs) in requests, cookies, and local storage.">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta property="og:title" content="Gain control over your JWTs">
+    <meta property="og:description" content="JWT Inspector is a browser extension that lets you inspect JSON Web Tokens in requests, cookies, and local storage. Also debug any JWT directly from the console or in the built-in UI.">
+    <meta property="og:image" content="http://www.jwtinspector.io/img/screenshots/jwt-inspector-promo-large.png">
+    <meta property="og:image:secure_url" content="https://www.jwtinspector.io/img/screenshots/jwt-inspector-promo-large.png">
+
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/henclmbnehmcpbjgipaajbggekefngob">
+    <link rel="shortcut icon" type="image/png" href="img/icons/icon-32.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,100,300,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Francois+One">
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <div class="icon">
+            <a href="index.html"><img src="img/logo-white.svg"></a>
+            <a href="index.html" class="text">JWT Inspector</a>
+          </div>
+          <div class="credits">
+            by
+            <a href="https://stormpath.com/" target="_blank">
+              <img src="img/stormpath-logo-white.png">
+            </a>
+          </div>
+        </div>
+
+        <div class="share">
+          <a href="https://twitter.com/intent/tweet?text=Inspect%20your%20JWTs%20with%20JWT%20Inspector%20for%20Chrome%20https%3A%2F%2Fjwtinspector.io%20%23jwt" target="_blank" rel="nofollow" class="btn btn-alt">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            Share on Twitter
+          </a>
+        </div>
+
+        <h1>Gain control over your JWTs</h1>
+
+        <p class="description">
+          JWT Inspector is a browser extension that lets you decode and inspect JSON Web Tokens
+          in requests, cookies, and local storage. Also debug any JWT directly from
+          the console or in the built-in UI.
+        </p>
+
+        <p class="buttons">
+          <a href="index.html#" class="btn chrome" onclick="chrome.webstore.install(); return false;">
+            <i class="fa fa-chrome" aria-hidden="true"></i>
+            Add to Chrome
+          </a>
+
+          <a href="index.html#" class="btn firefox" onclick="showModal('firefox'); return false;">
+            <i class="fa fa-firefox" aria-hidden="true"></i>
+            Add to Firefox
+          </a>
+
+          <a href="index.html#" class="btn safari" onclick="showModal('safari'); return false;">
+            <i class="fa fa-safari" aria-hidden="true"></i>
+            Add to Safari
+          </a>
+
+          <a href="https://github.com/stormpath/jwt-inspector" target="_blank" rel="nofollow" class="btn btn-alt">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            View on GitHub
+          </a>
+
+          <a href="index.html#" class="btn btn-install fixed hidden chrome" onclick="chrome.webstore.install(); return false;">
+            <i class="fa fa-chrome" aria-hidden="true"></i>
+            Add to Chrome
+          </a>
+          <a href="index.html#" class="btn btn-install fixed hidden firefox" onclick="showModal('firefox'); return false;">
+            <i class="fa fa-firefox" aria-hidden="true"></i>
+            Add to Firefox
+          </a>
+          <a href="index.html#" class="btn btn-install fixed hidden safari" onclick="showModal('safari'); return false;">
+            <i class="fa fa-safari" aria-hidden="true"></i>
+            Add to Safari
+          </a>
+        </p>
+
+        <p class="small chrome">
+          Soon also available for Firefox and Safari.
+        </p>
+        <p class="small firefox">
+          Currently only available for Chrome. Click the <em>Add to Firefox</em> button
+          above to get notified when it comes to Firefox.
+        </p>
+        <p class="small safari">
+          Currently only available for Chrome. Click the <em>Add to Safari</em> button
+          above to get notified when it comes to Safari.
+        </p>
+
+        <div class="devtools animated slideInUp">
+          <div class="devtools-shadow animated fadeIn"></div>
+          <div class="devtools-header">
+            <div class="devtools-icons"></div>
+            <ul class="devtools-menu">
+              <li>Elements</li>
+              <li>Console</li>
+              <li>Sources</li>
+              <li>Network</li>
+              <li>Timeline</li>
+              <li>Profiles</li>
+              <li>Resources</li>
+              <li>Security</li>
+              <li>Audits</li>
+              <li class="selected">JWT</li>
+            </ul>
+            <div class="devtools-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+          <ul class="devtools-jwt-menu">
+            <li>
+              <i class="fa fa-bug" aria-hidden="true"></i>
+              <span>Debug</span>
+            </li>
+            <li>
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <span>Cookies</span>
+            </li>
+            <li class="selected">
+              <i class="fa fa-archive" aria-hidden="true"></i>
+              <span>Storage <span class="counter-label">3</span></span>
+            </li>
+            <li>
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              <span>Requests</span>
+            </li>
+          </ul>
+          <ul class="devtools-filters">
+            <li>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+              <span>Current page</span>
+            </li>
+            <li>
+              <i class="fa fa-filter" aria-hidden="true"></i>
+              <span>Filter</span>
+              <span class="text-placeholder"></span>
+            </li>
+          </ul>
+
+          <div class="devtools-content">
+            <table class="devtools-table open">
+              <thead>
+                <tr>
+                  <th>Key</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>auth.token</td>
+                </tr>
+                <tr>
+                  <td>jwt</td>
+                </tr>
+                <tr class="selected">
+                  <td>token</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="devtools-jwt-details">
+              <div class="devtools-jwt-header">
+                <div class="devtools-close">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <span>token</span>
+              </div>
+              <div class="devtools-section">
+                <div class="devtools-section-title">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  JWT
+                </div>
+                <div class="devtools-section-content">
+                  <span class="jwt">
+                    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0._lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70
+                  </span>
+                </div>
+              </div>
+              <div class="devtools-section">
+                <div class="devtools-section-title">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  Header
+                </div>
+                <div class="devtools-section-content">
+                  <pre class="json">
+                    <span class="line">{</span>
+                    <span class="line">  <span class="key">typ</span>: "JWT",</span>
+                    <span class="line">  <span class="key">alg</span>: "HS256"</span>
+                    <span class="line">}</span>
+                  </pre>
+                </div>
+              </div>
+              <div class="devtools-section">
+                <div class="devtools-section-title">
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  Payload
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="section-1">
+      <div class="container feature">
+        <h2>Inspect JWTs everywhere</h2>
+        <p>
+          Find and inspect JWTs in cookies, local storage, and requests.
+        </p>
+        <div class="devtools">
+          <div class="devtools-header">
+            <div class="devtools-icons"></div>
+            <ul class="devtools-menu">
+              <li>Elements</li>
+              <li>Console</li>
+              <li>Sources</li>
+              <li>Network</li>
+              <li>Timeline</li>
+              <li>Profiles</li>
+              <li>Resources</li>
+              <li>Security</li>
+              <li>Audits</li>
+              <li class="selected">JWT</li>
+            </ul>
+            <div class="devtools-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+          <ul class="devtools-jwt-menu">
+            <li>
+              <i class="fa fa-bug" aria-hidden="true"></i>
+              <span>Debug</span>
+            </li>
+            <li>
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <span>Cookies</span>
+            </li>
+            <li>
+              <i class="fa fa-archive" aria-hidden="true"></i>
+              <span>Storage</span>
+            </li>
+            <li class="selected">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              <span>Requests <span class="counter-label">1</span></span>
+            </li>
+          </ul>
+          <ul class="devtools-filters">
+            <li>
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+              <span>Current page</span>
+            </li>
+            <li>
+              <i class="fa fa-square" aria-hidden="true"></i>
+              <span>Preserve log</span>
+            </li>
+            <li>
+              <i class="fa fa-filter" aria-hidden="true"></i>
+              <span>Filter</span>
+              <span class="text-placeholder"></span>
+            </li>
+          </ul>
+          <table class="devtools-table jwt-requests">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Url</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GET</td>
+                <td>http://localhost/?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0._lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70</td>
+                <td>200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section id="section-2" class="section-bg">
+      <div class="container feature left">
+        <h2>Easily debug JWTs</h2>
+        <p>
+          Paste a JWT and decode its header, payload, and signature.
+        </p>
+        <div class="devtools">
+          <div class="devtools-header">
+            <div class="devtools-icons"></div>
+            <ul class="devtools-menu">
+              <li>Elements</li>
+              <li>Console</li>
+              <li>Sources</li>
+              <li>Network</li>
+              <li>Timeline</li>
+              <li>Profiles</li>
+              <li>Resources</li>
+              <li>Security</li>
+              <li>Audits</li>
+              <li class="selected">JWT</li>
+            </ul>
+            <div class="devtools-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+          <ul class="devtools-jwt-menu">
+            <li class="selected">
+              <i class="fa fa-bug" aria-hidden="true"></i>
+              <span>Debug</span>
+            </li>
+            <li>
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <span>Cookies</span>
+            </li>
+            <li>
+              <i class="fa fa-archive" aria-hidden="true"></i>
+              <span>Storage</span>
+            </li>
+            <li>
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              <span>Requests</span>
+            </li>
+          </ul>
+          <div class="devtools-jwt-debug">
+            <div class="devtools-jwt-encoded">
+              <div class="devtools-jwt-header">
+                <span>Encoded</span>
+              </div>
+              <div class="textarea-placeholder">
+                <span class="jwt-header-color">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span>.</span><span class="jwt-payload-color">eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0</span><span>.</span><span class="jwt-signature-color">_lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70</span>
+                <span class="cursor blink"></span>
+              </div>
+            </div>
+            <div class="devtools-jwt-decoded">
+              <div class="devtools-jwt-details">
+                <div class="devtools-jwt-header">
+                  <span>Decoded</span>
+                </div>
+                <div class="devtools-section">
+                  <div class="devtools-section-title">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    Header
+                  </div>
+                  <div class="devtools-section-content">
+                    <pre class="json">
+                      <span class="line">{</span>
+                      <span class="line">  <span class="key">typ</span>: "JWT",</span>
+                      <span class="line">  <span class="key">alg</span>: "HS256"</span>
+                      <span class="line">}</span>
+                    </pre>
+                  </div>
+                </div>
+                <div class="devtools-section">
+                  <div class="devtools-section-title">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    Payload
+                  </div>
+                  <div class="devtools-section-content">
+                    <pre class="json">
+                      <span class="line">{</span>
+                      <span class="line">  <span class="key">sub</span>: "ff896557-2382-4d6e-abd8-a01a91abd94f",</span>
+                      <span class="line">  <span class="key">email</span>: "<a class="__cf_email__" href="cdn-cgi/l/email-protection.html" data-cfemail="ea80858284aa8f928b879a868fc4898587">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script>",</span>
+                      <span class="line">  <span class="key">is_admin</span>: true</span>
+                      <span class="line">}</span>
+                    </pre>
+                  </div>
+                </div>
+                <div class="devtools-section">
+                  <div class="devtools-section-title">
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    Signature
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section-3">
+      <div class="container feature">
+        <h2>Debug JWTs with the console</h2>
+        <p>
+          Use <code>console.jwt()</code> to decode and dump a JWT to the console.
+        </p>
+        <div class="devtools">
+          <div class="devtools-header">
+            <div class="devtools-icons"></div>
+            <ul class="devtools-menu">
+              <li>Elements</li>
+              <li class="selected">Console</li>
+              <li>Sources</li>
+              <li>Network</li>
+              <li>Timeline</li>
+              <li>Profiles</li>
+              <li>Resources</li>
+              <li>Security</li>
+              <li>Audits</li>
+              <li>JWT</li>
+            </ul>
+            <div class="devtools-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="devtools-console">
+              <div class="devtools-console-line">
+                console.jwt(<span class="string">'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0._lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70'</span>);
+              </div>
+              <div class="devtools-console-line output">
+                <pre class="json">
+                  <span class="line"><span class="name">JWT</span> {</span>
+                  <span class="line">  <span class="key">header</span>: Object</span>
+                  <span class="line">  <span class="key">payload</span>: Object</span>
+                  <span class="line">  <span class="key">signature</span>: <span class="string">"_lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70"</span></span>
+                  <span class="line">}</span>
+                </pre>
+              </div>
+              <div class="devtools-console-line input">
+                <span class="cursor blink"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="copyright">
+          &copy; 2016 Stormpath
+        </div>
+        <div class="social">
+          <a href="https://twitter.com/gostormpath" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://github.com/stormpath/jwt-inspector" target="_blank" rel="nofollow"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+        </div>
+        <div class="love">
+          <a href="https://stormpath.com" target="_blank">
+            <span>Made with</span><i class="fa fa-heart heart" aria-hidden="true"></i><span>by Stormpath</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <div id="modal-firefox" class="modal">
+      <div class="modal-content">
+        <div class="close" onclick="hideModal()" title="Close">&times;</div>
+        <h4>It's not ready for Firefox just yet...</h4>
+        <p>
+          It's currently only available for Chrome. But enter your email address
+          to get notified when it comes to Firefox. Each subscription will make us
+          work a little harder.
+        </p>
+        <form action="https://forms.hubspot.com/uploads/form/v2/475298/a1f040a9-360a-4f82-a7fa-a88cc1bf4138" enctype="multipart/form-data" method="POST" onsubmit="onSubmitForm(this)">
+          <input name="email" type="email" class="input" placeholder="Your email address" required>
+          <button type="submit" class="btn colored">Get notified</button>
+          <p class="small">
+            We won't send you any spam, we promise!
+          </p>
+        </form>
+        <p class="thanks">
+          Thank you <i class="fa fa-heart-o heart" aria-hidden="true"></i>
+        </p>
+      </div>
+    </div>
+    <div id="modal-safari" class="modal">
+      <div class="modal-content">
+        <div class="close" onclick="hideModal()" title="Close">&times;</div>
+        <h4>It's not ready for Safari just yet...</h4>
+        <p>
+          It's currently only available for Chrome. But enter your email address
+          to get notified when it comes to Safari. Each subscription will make us
+          work a little harder.
+        </p>
+        <form action="https://forms.hubspot.com/uploads/form/v2/475298/815630c0-c0af-4fe5-b21d-a23432625135" enctype="multipart/form-data" method="POST" onsubmit="onSubmitForm(this)">
+          <input name="email" type="email" class="input" placeholder="Your email address" required>
+          <button type="submit" class="btn colored">Get notified</button>
+          <p class="small">
+            We won't send you any spam, we promise!
+          </p>
+        </form>
+        <p class="thanks">
+          Thank you <i class="fa fa-heart-o heart" aria-hidden="true"></i>
+        </p>
+      </div>
+    </div>
+    <script>
+      var isChrome = !!window.chrome && !!window.chrome.webstore;
+      var isFirefox = typeof InstallTrigger !== 'undefined';
+      var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+
+      // If Chrome on iOS...
+      if (navigator.userAgent.indexOf('CriOS') > -1) {
+        isChrome = true;
+      }
+
+      if (isChrome) {
+        document.body.classList.add('chrome');
+      } else if (isFirefox) {
+        document.body.classList.add('firefox');
+      } else if (isSafari) {
+        document.body.classList.add('safari');
+      }
+
+      function showModal(modalName) {
+        var modal = document.getElementById('modal-' + modalName);
+        modal.className = 'modal show';
+      }
+
+      function hideModal() {
+        var modal = document.querySelector('.modal.show');
+        modal.className = 'modal';
+      }
+
+      function animateSection(nr) {
+        var sectionId = 'section-' + nr;
+        var animation = nr % 2 ? 'slideInLeft' : 'slideInRight';
+
+        var h2 = document.querySelector('#' + sectionId + ' > .feature > h2');
+        var p = document.querySelector('#' + sectionId + ' > .feature > p');
+        var devtools = document.querySelector('#' + sectionId + ' > .feature > .devtools');
+
+        if (h2.className.indexOf('animated') === -1) {
+          h2.className = h2.className + ' animated delay-200 ' + animation;
+          p.className = p.className + ' animated delay-100 ' + animation;
+          devtools.className = devtools.className + ' animated ' + animation;
+        }
+      }
+
+      function scrollHandler() {
+        var buttons = document.querySelectorAll('.btn-install');
+
+        if (document.body.scrollTop > 630 || document.documentElement.scrollTop > 630) {
+          for (var i = 0; i < buttons.length; ++i) {
+            buttons[i].classList.remove('hidden');
+            buttons[i].classList.add('visible');
+          }
+        } else {
+          for (var i = 0; i < buttons.length; ++i) {
+            buttons[i].classList.remove('visible');
+            buttons[i].classList.add('hidden');
+          }
+        }
+
+        if (document.body.scrollTop + window.innerHeight > 870 || document.documentElement.scrollTop + window.innerHeight > 870) {
+          setTimeout(animateSection.bind(null, 1), 100);
+        }
+
+        if (document.body.scrollTop + window.innerHeight > 1500 || document.documentElement.scrollTop + window.innerHeight > 1500) {
+          setTimeout(animateSection.bind(null, 2), 100);
+        }
+
+        if (document.body.scrollTop + window.innerHeight > 2110 || document.documentElement.scrollTop + window.innerHeight > 2110) {
+          setTimeout(animateSection.bind(null, 3), 100);
+        }
+      }
+
+      window.onscroll = scrollHandler;
+      window.onresize = scrollHandler;
+
+      window.onload = function () {
+        setTimeout(scrollHandler, 100);
+      };
+
+      var modals = document.querySelectorAll('.modal');
+
+      for (var i = 0; i < modals.length; ++i) {
+        modals[i].onclick = function () {
+          hideModal();
+        };
+
+        modals[i].querySelector('.modal-content').onclick = function (event) {
+          event.stopPropagation();
+        };
+      }
+
+      function onSubmitForm(form) {
+        form.classList.add('submitted');
+      }
+    </script>
+
+  </body>
+</html>-->
