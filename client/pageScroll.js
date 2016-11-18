@@ -1,40 +1,40 @@
-function showModal(modalName) {
-    var modal = document.getElementById('modal-' + modalName);
-    modal.className = 'modal show';
-}
+// function showModal(modalName) {
+//     const modal = document.getElementById(`modal-' + ${modalName}`);
+//     modal.className = 'modal show';
+// }
 
 function hideModal() {
-    var modal = document.querySelector('.modal.show');
+    const modal = document.querySelector('.modal.show');
     modal.className = 'modal';
 }
 
 function animateSection(nr) {
-    var sectionId = 'section-' + nr;
-    var animation = nr % 2 ? 'slideInLeft' : 'slideInRight';
+    const sectionId = `section-' + ${nr}`;
+    const animation = nr % 2 ? 'slideInLeft' : 'slideInRight';
 
-    var h2 = document.querySelector('#' + sectionId + ' > .feature > h2');
-    var p = document.querySelector('#' + sectionId + ' > .feature > p');
-    var devtools = document.querySelector('#' + sectionId + ' > .feature > .devtools');
+    const header = document.querySelector(`#${sectionId} > .feature > h2`);
+    const paragraph = document.querySelector(`#${sectionId} > .feature > p`);
+    const devtools = document.querySelector(`#${sectionId} > .feature > .devtools`);
 
-    if (h2.className.indexOf('animated') === -1) {
-        h2.className = h2.className + ' animated delay-200 ' + animation;
-        p.className = p.className + ' animated delay-100 ' + animation;
-        devtools.className = devtools.className + ' animated ' + animation;
+    if (header.className.indexOf('animated') === -1) {
+        header.className = `${header.className} animated delay-200 ${animation}`;
+        paragraph.className = `${paragraph.className} animated delay-100 ${animation}`;
+        devtools.className = `${devtools.className} animated ${animation}`;
     }
 }
 
 function scrollHandler() {
-    var buttons = document.querySelectorAll('.btn-install');
+    const buttons = document.querySelectorAll('.btn-install');
 
     if (document.body.scrollTop > 630 || document.documentElement.scrollTop > 630) {
-        for (var i = 0; i < buttons.length; ++i) {
-            buttons[i].classList.remove('hidden');
-            buttons[i].classList.add('visible');
+        for (let iterator = 0; iterator < buttons.length; ++iterator) { //eslint-disable-line no-plusplus
+            buttons[iterator].classList.remove('hidden');
+            buttons[iterator].classList.add('visible');
         }
     } else {
-        for (var i = 0; i < buttons.length; ++i) {
-            buttons[i].classList.remove('visible');
-            buttons[i].classList.add('hidden');
+        for (let iterator = 0; iterator < buttons.length; ++iterator) { //eslint-disable-line no-plusplus
+            buttons[iterator].classList.remove('visible');
+            buttons[iterator].classList.add('hidden');
         }
     }
 
@@ -58,18 +58,18 @@ window.onload = function () {
     setTimeout(scrollHandler, 100);
 };
 
-var modals = document.querySelectorAll('.modal');
+const modals = document.querySelectorAll('.modal');
 
-for (var i = 0; i < modals.length; ++i) {
-    modals[i].onclick = function () {
+for (let iterator = 0; iterator < modals.length; ++iterator) { //eslint-disable-line no-plusplus
+    modals[iterator].onclick = function () {
         hideModal();
     };
 
-    modals[i].querySelector('.modal-content').onclick = function (event) {
+    modals[iterator].querySelector('.modal-content').onclick = function (event) {
         event.stopPropagation();
     };
 }
 
-function onSubmitForm(form) {
-    form.classList.add('submitted');
-}
+// function onSubmitForm(form) {
+//     form.classList.add('submitted');
+// }
