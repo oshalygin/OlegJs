@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import open from 'open';
-import { chalkProcessing } from '../tools/chalkConfig';
+import { chalkProcessing } from '../utilities/chalkConfig';
 
 const application = express();
 application.use(bodyParser.urlencoded({ extended: true }));

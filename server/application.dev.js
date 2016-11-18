@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import webpack from 'webpack';
 import configuration from '../webpack.config.dev';
 import open from 'open';
-import { chalkProcessing } from '../tools/chalkConfig';
+import { chalkProcessing } from '../utilities/chalkConfig';
 
 const application = express();
 application.use(bodyParser.urlencoded({ extended: true }));

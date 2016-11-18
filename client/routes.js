@@ -3,11 +3,11 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/App.jsx';
 import HomePage from './components/HomePage.jsx';
-import NotFoundPage from './components/NotFoundPage.jsx';
+import NotFound from './components/NotFound.jsx';
 
 export default (
     <Route path='/' component={App}>
         <IndexRoute component={HomePage}/>
-        <Route path='*' component={NotFoundPage}/>
+        <Route path='*' component={NotFound}/>
     </Route>
 );
