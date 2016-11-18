@@ -164,7 +164,11 @@ const HomePage = () => {
                 </div>
                                     <div className="devtools-section-content">
                                         <span className="jwt">
-                                            eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0._lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70
+                                            eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+                                            .eyJzdWIiOiJmZjg5NjU1N
+                                            y0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6
+                                            ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0
+                                            ._lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70
                   </span>
                                     </div>
                                 </div>
@@ -256,7 +260,11 @@ const HomePage = () => {
                             <tbody>
                                 <tr>
                                     <td>GET</td>
-                                    <td>http://localhost/?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0._lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70</td>
+                                    <td>http://localhost/?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+                                    .eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkN
+                                    mUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0.
+                                    _lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70</td>
+
                                     <td>200</td>
                                 </tr>
                             </tbody>
@@ -313,7 +321,14 @@ const HomePage = () => {
                                     <span>Encoded</span>
                                 </div>
                                 <div className="textarea-placeholder">
-                                    <span className="jwt-header-color">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span>.</span><span className="jwt-payload-color">eyJzdWIiOiJmZjg5NjU1Ny0yMzgyLTRkNmUtYWJkOC1hMDFhOTFhYmQ5NGYiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJpc19hZG1pbiI6dHJ1ZX0</span><span>.</span><span className="jwt-signature-color">_lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70</span>
+                                    <span className="jwt-header-color">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</span><span>.</span>
+                                    <span
+                                        className="jwt-payload-color">
+                                        Some JWT
+                                        </span>
+                                    <span>.</span>
+                                    <span
+                                        className="jwt-signature-color">_lYAdmfszpyfbqWUeCC4LkfWbltC3uF29FiSPaHTJ70</span>
                                     <span className="cursor blink" />
                                 </div>
                             </div>
@@ -338,8 +353,8 @@ const HomePage = () => {
                                             <i className="fa fa-caret-down" aria-hidden="true" />
                                             Payload
                   </div>
-                                        <div className="devtools-section-content">
-                                        </div>
+                                        <div className="devtools-section-content" />
+
                                     </div>
                                     <div className="devtools-section">
                                         <div className="devtools-section-title">
@@ -396,7 +411,8 @@ const HomePage = () => {
                         &copy; 2016 Stormpath
         </div>
                     <div className="social">
-                        <a href="https://twitter.com/gostormpath" target="_blank" rel="nofollow"><i className="fa fa-twitter" aria-hidden="true" /></a>
+                        <a href="https://twitter.com/gostormpath"
+                            target="_blank" rel="nofollow"><i className="fa fa-twitter" aria-hidden="true" /></a>
                         <a href="https://github.com/stormpath/jwt-inspector"
                             target="_blank" rel="nofollow"><i className="fa fa-github-alt" aria-hidden="true" /></a>
                     </div>
@@ -438,8 +454,10 @@ const HomePage = () => {
           work a little harder.
         </p>
                     <form
-                        action="https://forms.hubspot.com/uploads/form/v2/475298/815630c0-c0af-4fe5-b21d-a23432625135" encType="multipart/form-data" method="POST"
+                        action="https://forms.hubspot.com/uploads/form/v2/475298/815630c0-c0af-4fe5-b21d-a23432625135"
+                        encType="multipart/form-data" method="POST"
                         onSubmit="onSubmitForm(this)">
+
                         <input name="email" type="email" className="input" placeholder="Your email address" required />
                         <button type="submit" className="btn colored">Get notified</button>
                         <p className="small">
