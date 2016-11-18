@@ -276,7 +276,7 @@
       "_this"
     ],
     // enforces consistent naming when capturing the current execution context (off by default)
-    "eol-last": 0,
+    "eol-last": 1,
     // enforce newline at the end of file, with no multiple empty lines
     "func-names": 0,
     // require function expressions to have a name (off by default)
@@ -369,7 +369,7 @@
     // require quotes around object literal property names (off by default)
     "quotes": [
       1,
-      "double"
+      "single"
     ],
     // specify whether double or single quotes should be used
     "semi": [
@@ -459,7 +459,6 @@
     "react/require-render-return": 2,
     "react/sort-comp": 2,
     "react/no-is-mounted": 2,
-    "jsx-quotes": 2,
     "react/jsx-curly-spacing": 2,
     "react/jsx-boolean-value": 2,
     "react/no-string-refs": 2,
