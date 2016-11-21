@@ -5,7 +5,6 @@ import HomeNavigationBar from './HomeNavigationBar.jsx';
 import PreLoader from '../common/PreLoader.jsx';
 import Intro from './Intro.jsx';
 import SourceProfile from './SourceProfile.jsx';
-import Progress from './Progress.jsx';
 import Features from './Features.jsx';
 import Contact from './Contact.jsx';
 import '../../styles/homePageTheme.js';
@@ -16,7 +15,7 @@ class HomePage extends React.Component {
             target: '.navbar-custom',
             offset: 50
         });
-        jQuery('#intro').backstretch('./client/images/main2.jpg');
+        jQuery('#intro').backstretch('./client/images/main-code.jpg');
 
         const navbar = jQuery('.navbar');
         const navHeight = navbar.height();
@@ -38,7 +37,6 @@ class HomePage extends React.Component {
                 <Intro />
                 <SourceProfile />
                 <Features />
-                <Progress />
                 <Contact />
             </div>
         );

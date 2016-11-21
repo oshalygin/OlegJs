@@ -1,18 +1,4 @@
 import React from 'react';
-import colorPallet from '../../styles/colorPallet';
-
-
-// const headerStyle = {
-//     color: colorPallet.pink
-// };
-
-const rotatingTextStyle = {
-    color: colorPallet.pink
-};
-
-const logo = {
-    width: '300px'
-};
 
 const Intro = () => {
     return (
@@ -21,8 +7,8 @@ const Intro = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="hello wow bounceInDown">
-                            <img style={logo} src={require('../../images/logo-green.png')} alt=""/>
-                            <h3><span className="rotate" style={rotatingTextStyle}>Lap Simulation | Oleg Shalygin | #JavaScript</span></h3>
+                            <h1 className="header-text">Oleg Shalygin</h1>
+                            <h3><span className="rotate">#NodeJs | #TDD | #NOSQL | #ReactJs</span></h3>
                         </div>
                         <div className="mouse-icon">
                             <div className="wheel" />

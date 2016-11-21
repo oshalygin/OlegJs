@@ -15,7 +15,7 @@ const SourceProfile = () => {
                     <div className="col-sm-4 wow bounceInUp">
                         <div className="profile-item text-center">
                             <i className="fa fa-github" />
-                            <h5><a href="https://github.com/oshalygin/FSAESimRevamp">FSAESim Github Repository</a></h5>
+                            <h5><a href="https://github.com/oshalygin">GitHub Profile</a></h5>
                         </div>
                     </div>
                     <div className="col-sm-4 wow bounceInRight">

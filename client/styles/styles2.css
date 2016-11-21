@@ -172,8 +172,6 @@ a,
 }
 
 
-/* Button types*/
-
 .btn-default {
     background: #EEEEEE;
 }
@@ -312,6 +310,7 @@ a,
 
 .rotate {
     text-shadow: 0 0 0 !important;
+    color: white;
 }
 
 .nomargin {
@@ -629,11 +628,6 @@ h3> .fa {
     color: #222;
 }
 
-
-/* ---------------------------------------------- /*
- * Contact
-/* ---------------------------------------------- */
-
 #contact {
     background: #18191a;
     color: #FFF;
@@ -666,11 +660,6 @@ h3> .fa {
     font-size: 12px;
     margin: 5px 0;
 }
-
-
-/* ---------------------------------------------- /*
- * Preloader
-/* ---------------------------------------------- */
 
 #preloader {
     background: #FFF;
@@ -725,4 +714,11 @@ div#simulation {
     font-weight: 400;
     line-height: 20px;
 
+}
+
+.header-text {
+  color: white;
+  font-family: 'Roboto';
+  font-weight: 300;
+  letter-spacing: 25px;
 }
