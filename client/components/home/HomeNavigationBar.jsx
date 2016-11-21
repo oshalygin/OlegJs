@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router";
+import React from 'react';
+import { Link } from 'react-router';
 
 
 const HomeNavigationBar = () => {
@@ -14,7 +14,7 @@ const HomeNavigationBar = () => {
                         <span className="icon-bar" />
                         <span className="icon-bar" />
                     </button>
-                    <a className="navbar-brand" href="#">FSAESim</a>
+                    <a className="navbar-brand" href="#">OlegJs</a>
                 </div>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-right">

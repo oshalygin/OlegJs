@@ -12,7 +12,7 @@ class PreLoader extends React.Component {
         return (<div id="preloader">
             <div id="status">
                 <div className="status-mes">
-                    <h4>FSAESim</h4>
+                    <h4>OlegJs</h4>
                 </div>
             </div>
         </div>);

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import React from "react";
-import FeatureBlock from "./featureBlock.jsx";
+import React from 'react';
+import FeatureBlock from './featureBlock.jsx';
 
 const Features = () => {
     return (

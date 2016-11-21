@@ -1,13 +1,17 @@
-import React from "react";
-import colorPallet from "../../styles/colorPallet";
+import React from 'react';
+import colorPallet from '../../styles/colorPallet';
 
 
-const headerStyle = {
-    color: colorPallet.pink
-};
+// const headerStyle = {
+//     color: colorPallet.pink
+// };
 
 const rotatingTextStyle = {
     color: colorPallet.pink
+};
+
+const logo = {
+    width: '300px'
 };
 
 const Intro = () => {
@@ -17,7 +21,7 @@ const Intro = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="hello wow bounceInDown">
-                            <h1 style={headerStyle}>FormulaSAE</h1>
+                            <img style={logo} src={require('../../images/logo-green.png')} alt=""/>
                             <h3><span className="rotate" style={rotatingTextStyle}>Lap Simulation | Oleg Shalygin | #JavaScript</span></h3>
                         </div>
                         <div className="mouse-icon">
