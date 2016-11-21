@@ -28,6 +28,12 @@ export default {
         filename: 'bundle.js'
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery', //eslint-disable-line
+            jQuery: 'jquery',
+            'windows.jQuery': 'jquery',
+            'window.$': 'jquery'
+        }),
         new webpack.DefinePlugin(GLOBALS),
         new webpack.HotModuleReplacementPlugin(), new webpack.NoErrorsPlugin(), new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
             template: 'client/index.html',
