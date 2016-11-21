@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 
 const Header = () => {
@@ -6,24 +7,20 @@ const Header = () => {
             <div className="container">
                 <div className="logo">
                     <div className="icon">
-                        <a href="index.html"><img src={require('../../images/logo.png')} /></a>
+                        <a href="index.html"><img src={require('../../images/logo-white.png')} /></a>
                     </div>
                 </div>
                 <div className="share">
                     <a href="https://twitter.com/intent/tweet?text=Wow%20this%20is%20a%20really%20neat%20site!!%20www.OlegJs.com%20%23olegjs" target="_blank" rel="nofollow" className="btn btn-alt">
                         <i className="fa fa-twitter" aria-hidden="true" />
                         Share on Twitter
-          </a>
+                    </a>
                 </div>
 
-                <h1>Gain control over your JWTs</h1>
-
+                <h1>Oleg Shalygin</h1>
                 <p className="description">
-                    JWT Inspector is a browser extension that lets you decode and inspect JSON Web Tokens
-          in requests, cookies, and local storage. Also debug any JWT directly from
-          the console or in the built-in UI.
-        </p>
-
+                    Passionate, creative, professional, and always learning.
+                </p>
                 <p className="buttons">
                     <a href="index.html#" className="btn chrome" onClick="chrome.webstore.install(); return false;">
                         <i className="fa fa-chrome" aria-hidden="true" />
