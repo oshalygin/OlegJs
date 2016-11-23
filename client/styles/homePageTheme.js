@@ -1,32 +1,35 @@
-const wowjs = require("../../node_modules/wowjs/dist/wow.min").WOW;
 
-(function ($, WOW) {
-	$(document).ready(function () {
-		$(document).on("click", ".navbar-collapse.in", function (e) {
-			if ($(e.target).is("a") && $(e.target).attr("class") !== "dropdown-toggle") {
-				$(this).collapse("hide");
+const wowjs = require('../../node_modules/wowjs/dist/wow.min').WOW;
+
+(function ($, WOW) { //eslint-disable-line
+	$(document).ready(() => {
+		$(document).on('click', '.navbar-collapse.in', function (event) {
+			if ($(event.target).is('a') && $(event.target).attr('class') !== 'dropdown-toggle') {
+				$(this).collapse('hide');
 			}
 		});
 
-		$("a[href*=\\#]").bind("click", function (e) {
+		$('a[href*=\\#]').bind('click', function (event) {
 			const anchor = $(this);
-			$("html, body").stop().animate({
-				scrollTop: $(anchor.attr("href")).offset().top
-			}, 1000);
-			e.preventDefault();
+			$('html, body')
+				.stop()
+				.animate({
+					scrollTop: $(anchor.attr('href')).offset().top
+				}, 1000);
+			event.preventDefault();
 		});
 
-		const navbar = $(".navbar");
+		const navbar = $('.navbar');
 
 		if ($(window).width() <= 767) {
-			navbar.addClass("custom-collapse");
+			navbar.addClass('custom-collapse');
 		}
 
 		$(window).resize(function () {
 			if ($(this).width() <= 767) {
-				navbar.addClass("custom-collapse");
+				navbar.addClass('custom-collapse');
 			} else {
-				navbar.removeClass("custom-collapse");
+				navbar.removeClass('custom-collapse');
 			}
 		});
 
@@ -36,11 +39,11 @@ const wowjs = require("../../node_modules/wowjs/dist/wow.min").WOW;
 		});
 		wow.init();
 
-		$(".rotate").textrotator({
-			animation: "dissolve",
-			separator: "|",
+		$('.rotate').textrotator({
+			animation: 'dissolve',
+			separator: '|',
 			speed: 3000
 		});
 	});
 
-}(jQuery, wowjs)); //eslint-disable-line no-undef
+} (jQuery, wowjs)); //eslint-disable-line
