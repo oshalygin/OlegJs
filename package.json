@@ -13,7 +13,7 @@
     "start": "npm-run-all --parallel test:watch open:server lint:watch",
     "open:server": "babel-watch server/application.dev.js",
     "open:dist": "babel-node server/application.production.js",
-    "lint": "esw webpack.config.* client server utilities --color",
+    "lint": "eslint webpack.config.* \"client/**\" \"server/**\" utilities/** --color ",
     "lint:watch": "npm run lint -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
