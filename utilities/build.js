@@ -10,7 +10,7 @@ process.env.NODE_ENV = 'production'; //eslint-disable-line no-process-env
 console.log(chalkProcessing('Generating minified bundle. This will take a moment...'));
 
 webpack(config).run((error, stats) => {
-    if (error) { // so a fatal error occurred. Stop here.
+    if (error) { // A fatal error occured, stop here.
         console.log(chalkError(error));
         return 1;
     }
