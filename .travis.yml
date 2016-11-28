@@ -14,8 +14,8 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - docker build --build-arg version=$(node -p -e "require('./package.json').version") -t olegjs:$(node -p -e "require('./package.json').version") .
+  - docker build --build-arg version=$(node -p -e "require('./package.json').version") -t oshalygin/olegjs:$(node -p -e "require('./package.json').version") .
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" http://index.docker.io;
     docker push oshalygin/olegjs;
     fi
