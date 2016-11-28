@@ -1,6 +1,6 @@
 {
   "name": "olegjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OlegJs Web Application",
   "engines": {
     "npm": ">=3"
