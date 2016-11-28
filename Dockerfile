@@ -1,6 +1,6 @@
 FROM node:7.0.0
 
-MAINTAINER Oleg Shalygin "oshalygin@gmail.com"
+MAINTAINER Oleg Shalygin <oshalygin@gmail.com>
 
 LABEL version="0.0.1"
 LABEL description="OlegJs Web Application"
