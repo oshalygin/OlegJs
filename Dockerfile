@@ -2,10 +2,13 @@ FROM node:7.0.0
 
 MAINTAINER Oleg Shalygin <oshalygin@gmail.com>
 
-LABEL version="0.0.1"
+ARG version
+
+LABEL version=$version
 LABEL description="OlegJs Web Application"
 
 ENV PORT=3000
+ENV PACKAGE_VERSION=$version
 
 COPY . /wwwroot
 WORKDIR /wwwroot

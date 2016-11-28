@@ -1,8 +1,17 @@
+sudo: required
+
+services:
+  - docker
+
 language: node_js
+
 node_js:
   - "6.0"
+
 script:
   - "npm run lint"
   - "npm run test:cover"
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - docker build --build-arg version=$(node -p -e "require('./package.json').version") -t olegjs:$(node -p -e "require('./package.json').version") .
