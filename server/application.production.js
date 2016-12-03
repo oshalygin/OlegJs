@@ -14,16 +14,16 @@ const port = process.env.PORT || 3000; //eslint-disable-line no-process-env
 application.use(express.static(path.join(__dirname, '../dist')));
 
 application.get('*', (request, response) => {
-    const clientEntryPoint = path.join(__dirname, '../dist/index.html');
-    response.sendFile(clientEntryPoint);
+  const clientEntryPoint = path.join(__dirname, '../dist/index.html');
+  response.sendFile(clientEntryPoint);
 });
 
 application.listen(port, (error) => {
-    if (!!error) {
-        console.log(error.bold.red);
-    }
-    open(`http://localhost:${port}`);
-    console.log(chalkProcessing(`Serving API AT http://localhost:${port}`));
+  if (!!error) {
+    console.log(error.bold.red);
+  }
+  open(`http://localhost:${port}`);
+  console.log(chalkProcessing(`Serving API AT http://localhost:${port}`));
 });
 
 export default application;

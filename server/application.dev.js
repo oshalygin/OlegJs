@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000; //eslint-disable-line no-process-env
 
 const applicationCompiler = webpack(configuration);
 application.use(require('webpack-dev-middleware')(applicationCompiler, {
-    noInfo: true, publicPath: configuration.output.publicPath
+  noInfo: true, publicPath: configuration.output.publicPath
 }));
 
 application.use(require('webpack-hot-middleware')(applicationCompiler));
@@ -23,16 +23,16 @@ application.use(require('webpack-hot-middleware')(applicationCompiler));
 application.use('/client', express.static(path.join(__dirname, '../client')));
 
 application.get('*', (request, response) => {
-    const clientEntryPoint = path.join(__dirname, '../client/index.html');
-    response.sendFile(clientEntryPoint);
+  const clientEntryPoint = path.join(__dirname, '../client/index.html');
+  response.sendFile(clientEntryPoint);
 });
 
 application.listen(port, (error) => {
-    if (!!error) {
-        console.log(error.bold.red);
-    }
-    open(`http://localhost:${port}`);
-    console.log(chalkProcessing(`Serving API AT http://localhost:${port}`));
+  if (!!error) {
+    console.log(error.bold.red);
+  }
+  open(`http://localhost:${port}`);
+  console.log(chalkProcessing(`Serving API AT http://localhost:${port}`));
 });
 
 export default application;

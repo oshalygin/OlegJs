@@ -7,8 +7,8 @@ import HomePage from './components/home/HomePage.jsx';
 import NotFound from './components/NotFound.jsx';
 
 export default (
-    <Route path="/" component={App}>
-        <IndexRoute component={HomePage}/>
-        <Route path="*" component={NotFound}/>
-    </Route>
+  <Route path="/" component={App}>
+    <IndexRoute component={HomePage} />
+    <Route path="*" component={NotFound} />
+  </Route>
 );

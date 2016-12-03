@@ -18,7 +18,7 @@ process.env.NODE_ENV = 'test'; //eslint-disable-line no-process-env
 // Disable webpack-specific features for tests since
 // Mocha doesn't know what to do with them.
 ['.css', '.scss', '.png', '.jpg'].forEach((extension) => {
-    require.extensions[extension] = () => null;
+  require.extensions[extension] = () => null;
 });
 
 const jsdom = require('jsdom').jsdom;
@@ -27,20 +27,20 @@ const exposedProperties = ['window', 'navigator', 'document'];
 global.document = jsdom('');
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach((property) => {
-    if (typeof global[property] === 'undefined') {
-        exposedProperties.push(property);
-        global[property] = document.defaultView[property];
-    }
+  if (typeof global[property] === 'undefined') {
+    exposedProperties.push(property);
+    global[property] = document.defaultView[property];
+  }
 });
 
 global.localStorage = {
-    getItem () {
-    },
-    setItem () {
-    }
+  getItem() {
+  },
+  setItem() {
+  }
 };
 
 global.navigator = {
-    userAgent: 'node.js'
+  userAgent: 'node.js'
 };
 
