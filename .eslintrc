@@ -396,7 +396,6 @@
       "always"
     ],
     // require or disallow space before function opening parenthesis (off by default)
-    "object-curly-spacing": "off",
     "object-shorthand": 2,
     "space-in-parens": [
       1,
