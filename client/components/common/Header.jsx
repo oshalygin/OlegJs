@@ -7,7 +7,7 @@ const Header = () => {
       <div className="container">
         <div className="logo">
           <div className="icon">
-            <a href="index.html"><img src={require('../../images/logo-white.png')} /></a>
+            <a href="index.html"><img src={require('../../images/black.png')} /></a>
           </div>
         </div>
         <div className="share">

@@ -15,13 +15,13 @@ const SourceProfile = () => {
           <div className="col-sm-4 wow bounceInUp">
             <div className="profile-item text-center">
               <i className="fa fa-github" />
-              <h5><a href="https://github.com/oshalygin">GitHub Profile</a></h5>
+              <h5><a href="https://github.com/oshalygin">GitHub</a></h5>
             </div>
           </div>
           <div className="col-sm-4 wow bounceInRight">
             <div className="profile-item text-center">
-              <i className="fa fa-cloud-download" />
-              <h5><a href="https://github.com/oshalygin/FSAESimRevamp/archive/master.zip">Download Source</a></h5>
+              <i className="fa fa-twitter" />
+              <h5><a href="https://twitter.com/oshalygin">Twitter</a></h5>
             </div>
           </div>
         </div>
