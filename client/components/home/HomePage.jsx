@@ -5,7 +5,7 @@ import HomeNavigationBar from './HomeNavigationBar.jsx';
 import PreLoader from '../common/PreLoader.jsx';
 import Intro from './Intro.jsx';
 import SourceProfile from './SourceProfile.jsx';
-import Features from './Features.jsx';
+import Summary from './Summary.jsx';
 import Contact from './Contact.jsx';
 import '../../styles/homePageTheme.js';
 
@@ -36,7 +36,7 @@ class HomePage extends React.Component {
         <HomeNavigationBar />
         <Intro />
         <SourceProfile />
-        <Features />
+        <Summary />
         <Contact />
       </div>
     );

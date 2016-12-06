@@ -2,13 +2,13 @@
 import React from 'react';
 import FeatureBlock from './featureBlock.jsx';
 
-const Features = () => {
+const Summary = () => {
   return (
-    <section id="features" className="section">
+    <section id="summary" className="section">
       <div className="container">
         <div className="row">
           <div className="col-md-12 headline wow bounceInDown">
-            <h2>Features</h2>
+            <h2>Summary</h2>
           </div>
           <div className="col-md-12">
             <div className="row">
@@ -46,4 +46,4 @@ const Features = () => {
   );
 };
 
-export default Features;
+export default Summary;
