@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const App = (props) => {
+const Application = (props) => {
   return (
     <div>
       {props.children}
@@ -8,8 +8,8 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
+Application.propTypes = {
   children: PropTypes.element
 };
 
-export default App;
+export default Application;
