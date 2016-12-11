@@ -7,7 +7,9 @@ module.exports = function (wallaby) {
       '!client/**/*.json',
       '!client/**/*.spec.js*',
       '!server/**/*.spec.js*',
-      { pattern: '/**/*.png', load: 'null' }
+      { pattern: '/**/*.png', load: 'null' },
+      { pattern: '/**/*.jpg', load: 'null' },
+      { pattern: '/**/*.jpeg', load: 'null' }
     ],
 
     tests: [
@@ -28,7 +30,7 @@ module.exports = function (wallaby) {
         plugins: ['transform-object-rest-spread']
       })
     },
-
+    debug: true,
     setup() {
 
       const noop = () => { };
@@ -37,6 +39,8 @@ module.exports = function (wallaby) {
       require.extensions['.ico'] = noop;
       require.extensions['.png'] = noop;
       require.extensions['.svg'] = noop;
+      require.extensions['.jpg'] = noop;
+      require.extensions['.jpeg'] = noop;
 
       const jsdom = require('jsdom').jsdom;
       const exposedProperties = ['window', 'navigator', 'document'];

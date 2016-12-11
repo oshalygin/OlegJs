@@ -34,13 +34,10 @@ Object.keys(document.defaultView).forEach((property) => {
 });
 
 global.localStorage = {
-  getItem() {
-  },
-  setItem() {
-  }
+  getItem() { },
+  setItem() { }
 };
 
 global.navigator = {
   userAgent: 'node.js'
 };
-
