@@ -1,6 +1,5 @@
 // Register babel so that it will transpile ES6 to ES5
 // before our tests run.
-require('babel-register')();
 
 // Tests are placed alongside files under test.
 // This file does the following:
@@ -17,7 +16,7 @@ process.env.NODE_ENV = 'test'; //eslint-disable-line no-process-env
 
 // Disable webpack-specific features for tests since
 // Mocha doesn't know what to do with them.
-['.css', '.scss', '.png', '.jpg'].forEach((extension) => {
+['.css', '.scss', '.png', '.jpg', '.jpeg', '.ico', '.GIF', '.gif'].forEach((extension) => {
   require.extensions[extension] = () => null;
 });
 

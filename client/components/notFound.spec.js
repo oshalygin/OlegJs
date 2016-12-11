@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import NotFound from './NotFound.jsx';
 
 describe('<NotFound />', () => {
-  it('should have a description of the message, "404" displayed', () => {
+  it('should have a description message: "404"', () => {
     const expected = '404 Page Not Found';
 
     const wrapper = shallow(<NotFound />);

@@ -6,14 +6,14 @@ services:
 language: node_js
 
 node_js:
-  - "6.0"
+  - "7.2.1"
 
 cache:
   yarn: true
 
 script:
-  - "npm run lint"
-  - "npm run test:cover"
+  - npm run lint
+  - npm run test:cover
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
