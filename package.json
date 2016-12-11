@@ -18,7 +18,7 @@
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run clean-dist && npm run lint && npm run test:cover",
     "build": "babel-node utilities/build.js",
-    "test:cover": "babel-node node_modules/.bin/isparta cover --report lcov _mocha -- --require ./utilities/testSetup.js './client/**/*.spec.js' --reporter spec",
+    "test:cover": "babel-node node_modules/.bin/isparta cover --report lcov _mocha -- --require ./utilities/testSetup.js \"./client/**/*.spec.js\" --reporter spec",
     "open:cover": "npm run test:cover && open coverage/index.html"
   },
   "author": "oshalygin@gmail.com",
