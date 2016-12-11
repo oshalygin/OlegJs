@@ -1,15 +1,16 @@
+/* eslint-disable */
+
 module.exports = function (wallaby) {
   'use strict';
   return {
     files: [
       'client/**/*.js*',
+      'client/**/*.css',
       'server/**/*.js',
       '!client/**/*.json',
       '!client/**/*.spec.js*',
       '!server/**/*.spec.js*',
-      { pattern: '/**/*.png', load: 'null' },
-      { pattern: '/**/*.jpg', load: 'null' },
-      { pattern: '/**/*.jpeg', load: 'null' }
+      { pattern: '/**/*.png', load: 'null' }
     ],
 
     tests: [
@@ -30,12 +31,9 @@ module.exports = function (wallaby) {
         plugins: ['transform-object-rest-spread']
       })
     },
-    debug: true,
-    setup() {
+    setup: function () {
 
       const noop = () => { };
-
-      require.extensions['.css'] = noop;
       require.extensions['.ico'] = noop;
       require.extensions['.png'] = noop;
       require.extensions['.svg'] = noop;
@@ -54,17 +52,15 @@ module.exports = function (wallaby) {
         }
       });
 
-
       global.localStorage = {
-        getItem() { },
-        setItem() { }
+        getItem: function () { },
+        setItem: function () { }
       };
 
       global.navigator = {
         userAgent: 'node.js'
       };
 
-      //noinspection JSUnresolvedVariable
       documentRef = document; //eslint-disable-line no-undef
     }
   };
