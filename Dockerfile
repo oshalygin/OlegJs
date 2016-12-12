@@ -7,7 +7,7 @@ ARG version
 LABEL version=$version
 LABEL description="OlegJs Web Application"
 
-ENV PORT=8081
+ENV PORT=8080
 ENV PACKAGE_VERSION=$version
 
 COPY . /wwwroot

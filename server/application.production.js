@@ -9,7 +9,7 @@ const application = express();
 application.use(bodyParser.urlencoded({ extended: true }));
 application.use(bodyParser.json());
 
-const port = process.env.PORT || 8081; //eslint-disable-line no-process-env
+const port = process.env.PORT || 8080; //eslint-disable-line no-process-env
 
 application.use(express.static(path.join(__dirname, '../dist')));
 
