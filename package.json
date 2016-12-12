@@ -19,7 +19,7 @@
     "prebuild": "npm run clean-dist && npm run lint && npm run test:cover",
     "build": "babel-node utilities/build.js",
     "test": "mocha utilities/testSetup.js \"client/**/*.spec.js\" --reporter spec",
-    "test:cover": "node_modules/.bin/isparta cover --report lcov _mocha -- --require ./utilities/testSetup.js \"./client/**/*.spec.js\" --reporter spec",
+    "test:cover": "node_modules/isparta/bin/isparta cover --report lcov _mocha -- --require ./utilities/testSetup.js \"./client/**/*.spec.js\" --reporter spec",
     "open:cover": "npm run test:cover && open coverage/index.html"
   },
   "author": "oshalygin@gmail.com",
