@@ -12,7 +12,7 @@ spec:
         name: web
     spec:
       containers:
-      - image: index.docker.io/oshalygin/olegjs:0.0.7
+      - image: index.docker.io/oshalygin/olegjs:1.1.0
         name: web
         imagePullPolicy: Always
         ports:
