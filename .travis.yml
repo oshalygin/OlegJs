@@ -14,6 +14,7 @@ cache:
 script:
   - npm run lint
   - npm run test:cover
+  - npm run codacity:coverage
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

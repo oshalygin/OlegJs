@@ -1075,6 +1075,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+bluebird@^2.3, bluebird@^2.9.x:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
+
 bluebird@^3.4.1:
   version "3.4.6"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.4.6.tgz#01da8d821d87813d158967e743d5fe6c62cf8c0f"
@@ -1370,6 +1374,17 @@ coa@~1.0.1:
   dependencies:
     q "^1.1.2"
 
+codacy-coverage@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/codacy-coverage/-/codacy-coverage-2.0.0.tgz#58c5b5df4bcaaa7b52142417f2f8774ed3fb4fe7"
+  dependencies:
+    bluebird "^2.9.x"
+    commander "^2.x"
+    joi "^6.4.x"
+    lcov-parse "0.x"
+    log-driver "^1.x"
+    request-promise "^0.x"
+
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
@@ -1430,7 +1445,7 @@ commander@2.8.x:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
-commander@2.9.0, commander@2.9.x, commander@^2.8.1, commander@^2.9.0:
+commander@2.9.0, commander@2.9.x, commander@^2.8.1, commander@^2.9.0, commander@^2.x:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
   dependencies:
@@ -3131,6 +3146,10 @@ isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
+isemail@1.x.x:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-1.2.0.tgz#be03df8cc3e29de4d2c5df6501263f1fa4595e9a"
+
 isexe@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-1.1.2.tgz#36f3e22e60750920f5e7241a476a8c6a42275ad0"
@@ -3210,6 +3229,15 @@ jodid25519@^1.0.0:
   resolved "https://registry.yarnpkg.com/jodid25519/-/jodid25519-1.0.2.tgz#06d4912255093419477d425633606e0e90782967"
   dependencies:
     jsbn "~0.1.0"
+
+joi@^6.4.x:
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-6.10.1.tgz#4d50c318079122000fe5f16af1ff8e1917b77e06"
+  dependencies:
+    hoek "2.x.x"
+    isemail "1.x.x"
+    moment "2.x.x"
+    topo "1.x.x"
 
 jquery.backstretch@2.1.13:
   version "2.1.13"
@@ -3401,7 +3429,7 @@ lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
 
-lcov-parse@0.0.6:
+lcov-parse@0.0.6, lcov-parse@0.x:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.6.tgz#819e5da8bf0791f9d3f39eea5ed1868187f11175"
 
@@ -3567,7 +3595,7 @@ lodash.words@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
-lodash@^3.5.0:
+lodash@^3.10.0, lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
@@ -3575,7 +3603,7 @@ lodash@^4.0.0, lodash@^4.1.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lo
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
 
-log-driver@1.2.4:
+log-driver@1.2.4, log-driver@^1.x:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/log-driver/-/log-driver-1.2.4.tgz#2d62d7faef45d8a71341961a04b0761eca99cfa3"
 
@@ -3809,7 +3837,7 @@ mockdate@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mockdate/-/mockdate-1.0.4.tgz#00aa9ef0a5995851e3f12d11779300815a5319ed"
 
-moment@~2.14.1:
+moment@2.x.x, moment@~2.14.1:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.14.1.tgz#b35b27c47e57ed2ddc70053d6b07becdb291741c"
 
@@ -5016,6 +5044,15 @@ replace@0.3.0:
     minimatch "~0.2.9"
     nomnom "1.6.x"
 
+request-promise@^0.x:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-0.4.3.tgz#3c8ddc82f06f8908d720aede1d6794258e22121c"
+  dependencies:
+    bluebird "^2.3"
+    chalk "^1.1.0"
+    lodash "^3.10.0"
+    request "^2.34"
+
 request@2.74.0, request@~2.74.0:
   version "2.74.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.74.0.tgz#7693ca768bbb0ea5c8ce08c084a45efa05b892ab"
@@ -5042,7 +5079,7 @@ request@2.74.0, request@~2.74.0:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
-request@^2.55.0, request@^2.63.0, request@^2.65.0, request@^2.79.0:
+request@^2.34, request@^2.55.0, request@^2.63.0, request@^2.65.0, request@^2.79.0:
   version "2.79.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
   dependencies:
@@ -5615,6 +5652,12 @@ title-case@^2.1.0:
 to-fast-properties@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
+
+topo@1.x.x:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/topo/-/topo-1.1.0.tgz#e9d751615d1bb87dc865db182fa1ca0a5ef536d5"
+  dependencies:
+    hoek "2.x.x"
 
 toposort@^1.0.0:
   version "1.0.0"
