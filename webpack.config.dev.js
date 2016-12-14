@@ -14,16 +14,15 @@ export default {
     extensions: ['', '.js', '.jsx', '.json']
   },
   debug: true,
-  devtool: 'eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-  noInfo: true, // set to false to see a list of every file being bundled.
+  devtool: 'eval-source-map',
+  noInfo: true, 
   entry: [
-    // must be first entry to properly set public path
     './client/webpack-public-path', 'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, 'client/index.js') // Defining path seems necessary for this to work consistently on Windows machines.
+    path.resolve(__dirname, 'client/index.js') 
   ],
-  target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
+  target: 'web', 
   output: {
-    path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
+    path: path.resolve(__dirname, 'dist'), 
     publicPath: '/',
     filename: 'bundle.js'
   },

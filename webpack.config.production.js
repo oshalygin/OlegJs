@@ -16,29 +16,20 @@ export default {
     extensions: ['', '.js', '.jsx', '.json']
   },
   debug: true,
-  devtool: 'eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-  noInfo: true, // set to false to see a list of every file being bundled.
+  devtool: 'eval-source-map', 
+  noInfo: true, 
   entry: path.resolve(__dirname, 'client/index'),
-  target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
+  target: 'web', 
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
   plugins: [
-    // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
-
-    // Optimize the order that items are bundled. This assures the hash is deterministic.
     new webpack.optimize.OccurenceOrderPlugin(),
-
-    // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new webpack.DefinePlugin(GLOBALS),
-
-    // Generate an external css file with a hash in the filename
     new ExtractTextPlugin('[name].[contenthash].css'),
-
-    // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
       template: 'client/index.html',
       minify: {
@@ -55,11 +46,7 @@ export default {
       },
       inject: true
     }),
-
-    // Eliminate duplicate packages when generating bundle
     new webpack.optimize.DedupePlugin(),
-
-    // Minify JS
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
