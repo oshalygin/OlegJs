@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: olegjs
+  labels:
+    version: v1
+    date: foobarus
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: olegjs
+  template:
+    metadata:
+      labels:
+        name: olegjs
+    spec:
+      containers:
+      - name: olegjs
+        image: index.docker.io/oshalygin/olegjs:1.1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
