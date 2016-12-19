@@ -12,7 +12,7 @@ describe('<TechnologyBlock />', () => {
     blockText: 'foo'
   };
 
-  it('should a root component class of "bounceInLeft"', () => {
+  it('should have a root component class of "bounceInLeft"', () => {
 
     const wrapper = shallow(<TechnologyBlock {...defaultAttributes} />);
     const actual = wrapper.first().hasClass('bounceInLeft');

@@ -24,7 +24,7 @@ const HomeNavigationBar = () => {
           <ul className="nav navbar-nav navbar-right">
             <li><a href="#intro">Home</a></li>
             <li><a href="#technology">Tech Stack</a></li>
-            <li><a href="#progress">Learning</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>

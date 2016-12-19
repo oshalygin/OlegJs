@@ -7,6 +7,7 @@ import Intro from './Intro.jsx';
 import SourceProfile from './SourceProfile.jsx';
 import Technology from './Technology.jsx';
 import Contact from './Contact.jsx';
+import Projects from './Projects.jsx';
 import '../../styles/homePageTheme.js';
 
 class HomePage extends React.Component {
@@ -37,6 +38,7 @@ class HomePage extends React.Component {
         <Intro />
         <SourceProfile />
         <Technology />
+        <Projects />
         <Contact />
       </div>
     );
